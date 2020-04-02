@@ -29,9 +29,9 @@ Vue.component('message-form',{
     },
 template:
 '<div>' +
-    '<input type="text" placeholder="Название города" v-model = "name"/> ' +
-    '<input type="text" placeholder="Описание" v-model = "description"/> ' +
-    '<input type="button" value="Сохранить" @click="save"/> '+
+    '<input type="text" placeholder="Name of City" v-model = "name"/> ' +
+    '<input type="text" placeholder="Description" v-model = "description"/> ' +
+    '<input type="button" value="save" @click="save"/> '+
     '</div>',
     methods: {
         save: function () {
@@ -62,7 +62,7 @@ template:
 Vue.component('message-row',{
     props: ['message', 'editMethod','messages'],
     template: '<div>'+
-    '<i>({{ message.name }})</i>{{ message.description }}'+
+    '<i>{{ message.name }} - </i>{{ message.description }}'+
         '<span>'+
         '<input type="button" value="edit" @click="edit"/> '+
     '<input type="button" value="X" @click="del"/> '+

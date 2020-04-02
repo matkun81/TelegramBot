@@ -29,8 +29,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Value("${telegramBot.token}")
     private String telegramBotToken;
 
-    public static final String HELP_INSTRUCTION = "Это простой телеграм бот,который даёт самую исчерпывающую информацию, о городах." +
-            "Введите интересующий вас город, с большой буквы на русском";
+    public static final String HELP_INSTRUCTION = "This is telegram bot, which gives information about city" +
+            "You can use it, just input name of city (This version supports only English)";
 
     public void sendTextMessage(Message message,String text){
         SendMessage sendMessage = new SendMessage();
@@ -71,7 +71,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         if (message.hasText() && cities.get(message.getText()) != null) {
                 sendTextMessage(message, cities.get(message.getText()));
             } else {
-                sendTextMessage(message, "Извините такой город не найден... Попробуйте ещё раз!");
+                sendTextMessage(message, "Sorry... This city is not found! Try again.");
             }
         }
     }
