@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 
@@ -20,5 +21,6 @@ public class City {
     private String name;
 
     @NonNull
+    @Length(max = 6000,message = "Description is too long")
     private String description;
 }

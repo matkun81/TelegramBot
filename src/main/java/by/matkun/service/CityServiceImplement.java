@@ -5,6 +5,8 @@ import by.matkun.model.City;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -34,6 +36,7 @@ public class CityServiceImplement implements CityService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public City update(City city,City cityFromDb) {
         BeanUtils.copyProperties(city,cityFromDb,"id");
         return cityRepository.save(city);
